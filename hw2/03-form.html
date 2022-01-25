@@ -8,11 +8,23 @@
     <link rel="stylesheet" href="../styles.css" />
     <link rel="stylesheet" href="hw-styles.css" />
   </head>
-  <body>
+  <body class="background">
     <main>
-      <h1>Exercise 03 - Form</h1>
-      <form action="">
-        <!-- Add your code here -->
+      <form action="" class="hw2card">
+        <div>
+          <div class="container">
+            <h3 class="textcard">CONTACT FORM</h3>
+            <label for="input_name"> Name <p class="color"> (required)</p> </label><br>
+            <input class="input_name" type='text' id="input_name" required="required" oninvalid="this.setCustomValidity('Please fill out this field.')" oninput="this.setCustomValidity('')"/>
+            <label for="input_email"> Email <p class="color"> (required)</p> </label><br>
+            <input class="input_email" type='text' id="input_email" required="required" oninvalid="this.setCustomValidity('Please fill out this field.')" oninput="this.setCustomValidity('')"/>
+            <label for="input_comments"> Comments? </label><br>
+            <textarea class="input_comments" id="input_comments"></textarea>
+            <input type="checkbox" class="checkbox" id="checkbox">
+            <label for="checkbox"> Sign up for the newsletter </label><br>
+            <button type="submit" class="button_hw3">Submit</button> 
+          </div>
+        </div>
       </form>
     </main>
   </body>
