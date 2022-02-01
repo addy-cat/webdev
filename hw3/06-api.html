@@ -11,10 +11,38 @@
     />
     <script defer src="06-api.js"></script>
   </head>
-  <body class="bg-dark">
-    <section class="container border rounded bg-light w-50 mx-auto mt-5 p-3">
-      <h1 class="mt-2 mb-4">REST Countries</h1>
-      <ol id="results"></ol>
-    </section>
+  <body style="background-color: #202020;">
+    <main>
+      <h1 class="mt-3">Exercise 05 - Bootstrap Form</h1>
+      <form style="margin: auto" action="">
+        <!-- Add your code here -->
+        <form action="#">
+          <div class="form-group, form, textcard_hw5">
+           CONTACT FORM
+          </div>
+          <div class="form-group, form">
+            Name *
+            <input required="required" type="name" class="form-control" id="exampleInputName1" oninvalid="this.setCustomValidity('Please fill out this field.')" oninput="this.setCustomValidity('')">
+          </div>
+          <div class="form-group, form">
+            Email *
+            <input required="required" type="email" class="form-control" id="exampleInputEmail1" oninvalid="this.setCustomValidity('Please fill out this field.')" oninput="this.setCustomValidity('')">
+          </div>
+          <div class="form-group, form">
+            Comments?
+            <textarea style="height:3.5em" type="comments" class="form-control"></textarea>
+          </div>
+          <div class="form-check, form">
+            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+            Sign up for the newsletter
+          </div>
+          <div class="form-group, form">
+            <button type="submit" class="btn-xl btn-primary">Submit</button>
+            <button type="reset" class="btn-xl btn-secondary">Reset</button>
+          </div>
+         
+        </form>
+      </form>
+    </main>
   </body>
 </html>
