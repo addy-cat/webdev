@@ -18,6 +18,7 @@ const routes = [
   'redirected',
   'cache',
   'cookie',
+  'check-cookies',
   'other',
 ];
 
@@ -34,13 +35,54 @@ let getRoutes = () => {
 app.get('/', (req, res) => {
   let routeResults = getRoutes();
 
-  res.writeHead(200, { 'Content-Type': 'text/html' });
+  res.status(200);
+  res.set({ 'Content-Type': 'text/html' });
   res.write(`<h1>Exercise 04</h1>`);
   res.write(`<ul> ${routeResults} </ul>`);
-  res.end();
 });
 
-app.get('/welcome', (req, res) => {});
+app.get('/welcome', (req, res) => {
+  res.status(200);
+  res.set({ "Content-Type": "text/html" });
+  res.send("<p> Welcome!! </p>");
+});
+
+app.get('/redirect', (req, res) => {
+  res.status(302);
+  res.set({ "Content-Type": "text/html", "Location": "/redirected" });
+  res.send("<p> You are being redirected.. </p>");
+})
+
+app.get('/redirected', (req, res) => {
+  res.status(200);
+  res.set({ "Content-Type": "text/html" });
+  res.send("<p> There you are!! </p>");
+})
+
+app.get('/cache', (req, res) => {
+    res.status(304);
+    res.set({"Cache-Control": `max-age=${60*60*24}`});
+    res.send("This resource was cached.");
+})
+
+app.get('/cookie', (req, res) => {
+  res.status(200);
+  res.set({"Set-Cookie": "hello=world"});
+  res.send("cookies.... yummm");
+})
+
+app.get('/check-cookies', (req, res) => {
+    if (req.headers['cookie'] === 'hello=world')
+      res.send('<p>GIMMME ALL DEM COOKIES</p>');
+    else
+      res.send("<p>GET ME SOME FREAKING COOKIES</p>");
+})
+
+app.get('*', (req, res) => {
+  res.writeHead(404, { "Content-Type": "text/html" });
+  res.write("404...");
+  res.end();
+})
 
 // Add your code here
 

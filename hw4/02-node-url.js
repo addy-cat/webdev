@@ -33,6 +33,37 @@ const server = http.createServer((req, res) => {
   }
 
   // Add your code here
+  if(req.url === '/attributes?hello=world&lorem=ipsum') {
+    res.writeHead(200, { 'Content-Type': 'text/html' });
+    let params = req.url.split("?")[1];
+    let param_list = params.split("&");
+    res.write('<table style="border:1px solid black;">')
+    param_list.forEach((param) => {
+      let [name,value] = param.split('=');
+      res.write('<tr style="border:1px solid black;">');
+      res.write(`<td style="border:1px solid black;">${name}</td>`);
+      res.write(`<td style="border:1px solid black;">${value}</td>`)
+      res.write(`</tr>`)
+    })
+    res.write('</table>');
+    res.end();
+  }
+
+  if(req.url === '/attributes?hello=world&lorem=ipsum') {
+    res.writeHead(200, { 'Content-Type': 'text/html' });
+    let params = req.url.split("?")[1];
+    let param_list = params.split("&");
+    res.write('<table style="border:1px solid black;">')
+    param_list.forEach((param) => {
+      let [name,value] = param.split('=');
+      res.write('<tr style="border:1px solid black;">');
+      res.write(`<td style="border:1px solid black;">${name}</td>`);
+      res.write(`<td style="border:1px solid black;">${value}</td>`)
+      res.write(`</tr>`)
+    })
+    res.write('</table>');
+    res.end();
+  }
 
   res.end();
 });

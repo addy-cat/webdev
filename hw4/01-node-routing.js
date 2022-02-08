@@ -44,6 +44,49 @@ const server = http.createServer((req, res) => {
   }
 
   // Add your code here
+  else if (req.url === "/welcome") {
+    res.writeHead(200, { "Content-Type": "text/html" });
+    res.write("<p> Welcome!! </p>");
+    res.end();
+  }
+
+  else if (req.url === "/redirect") {
+    res.writeHead(302, { "Content-Type": "text/html", "Location": "/redirected" });
+    res.write("<p> You are being redirected.. </p>");
+    res.end();
+  }
+
+  else if (req.url === "/redirected") {
+    res.writeHead(200, { "Content-Type": "text/html" });
+    res.write("<p> There you are!! </p>");
+    res.end();
+  }
+
+  else if (req.url === "/cache") {
+    res.writeHead(304, {"Cache-Control": `${60*60*24}`});
+    res.write("This resource was cached.");
+    res.end();
+  }
+
+  else if (req.url === "/cookie") {
+    res.writeHead(200, {"Set-Cookie": "hello=world"});
+    res.write("cookies.... yummm");
+    res.end()
+  }
+
+  else if (req.url === "/check-cookies") {
+    if (req.headers['cookie'] === 'hello=world')
+      res.write('<p>GIMMME ALL DEM COOKIES</p>');
+    else
+      res.write("<p>GET ME SOME FREAKING COOKIES</p>");
+    res.end()
+  }
+
+  else {
+    res.writeHead(404, { "Content-Type": "text/html" });
+    res.write("404...");
+    res.end();
+  }
 });
 
 server.listen(port, () => {
