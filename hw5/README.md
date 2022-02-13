@@ -1,7 +1,7 @@
 ## Homework 5 - Instructions for running tutorials
 
 ## Tutorial #1
-### To run this tutorial, begin in the project folder called 'my-app', within the 02-react folder. In order to run this project locally, you will need Node.JS installed. You can install this via:
+### To run this tutorial, begin in the project folder called 'my-app', within the 01-react folder. In order to run this project locally, you will need Node.JS installed. You can install this via:
 ## npm install -g npm
 
 ### You can run the project by typing this in the terminal within the project folder 'my-app':
